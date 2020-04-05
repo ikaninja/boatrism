@@ -11,7 +11,7 @@ audio.src = 'audio.mp3';
 startButton.onclick = () => {
     taptime0 = new Date();
     const header0 = document.createElement('h3');
-    header0.innerText = '開始';
+    header0.innerText = '0.000秒　開始';
     resultDivided.appendChild(header0);
     audio.play();
 }
