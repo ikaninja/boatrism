@@ -16,7 +16,8 @@ startButton.onclick = () => {
     header0.innerText = '0.000秒　開始';
     resultDivided.appendChild(header0);
     audio.play();
-    setInterval(alerm.play(), 3000);
+    for(var i = 0; i < 10; 1++) {
+        alerm.play();
 }
 
 
