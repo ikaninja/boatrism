@@ -20,7 +20,7 @@ var point = 0;
 var text;
 
 var music30s = new Audio();
-music30s.src = 'music30s.mp3';
+music30s.src = 'http://nakano-sound.com/freedeta/%E5%B1%B1%E3%81%AE%E9%A2%A8.mp3';
 
 function timefunc(){
     var res = confirm("OKを押すと音楽が流れ始め30秒がスタートします")
