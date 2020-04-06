@@ -1,6 +1,7 @@
 'use strict';
 
 const timerArea = document.getElementById('timer-area');
+const startButton = document.getElementById('start-button');
 const agoButton = document.getElementById('ago-button');
 const showButton = document.getElementById('show-button');
 const resultArea = document.getElementById('result-area');
@@ -20,19 +21,24 @@ var point = 0;
 var text;
 
 var music30s = new Audio();
-music30s.src = 'http://nakano-sound.com/freedeta/%E5%B1%B1%E3%81%AE%E9%A2%A8.mp3';
+music30s.src = 'music30s.mp3';
 
-function timefunc(){
-    var res = confirm("OKを押すと音楽が流れ始め30秒がスタートします")
-    if(res === true) {
-        time0 = new Date();
-        music30s.play();
-    } else {
-        window.location.href = 'https://ikaninja.github.io/boatrism/title/title.html'
-    }
+startButton.onclick = () => {
+    time0 = new Date();
+    music30s.play();
 }
 
-window.onload = timefunc;
+//function timefunc(){
+//    var res = confirm("OKを押すと音楽が流れ始め30秒がスタートします")
+//    if(res === true) {
+//        time0 = new Date();
+//        music30s.play();
+//    } else {
+//        window.location.href = 'https://ikaninja.github.io/boatrism/title/title.html'
+//    }
+//}
+
+//window.onload = timefunc;
 
 agoButton.onclick = () =>{
     time1 = new Date();
