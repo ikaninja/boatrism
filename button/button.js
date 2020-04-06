@@ -22,6 +22,7 @@ var text;
 
 var music30s = new Audio();
 music30s.src = 'music30spi2.mp3';
+music30s.preload = 'auto';
 
 startButton.onclick = () => {
     time0 = new Date();
