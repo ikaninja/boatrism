@@ -14,12 +14,15 @@ var time1;
 var seconds;
 var list = [];
 var result;
+var risoulist;
+var risoulist = [6,9,12,15,18,21,24,27,30,33];
 
 //var music30s = new Audio();
 //music30s.src = 'music30s.mp3';
 
 function timefunc(){
     time0 = new Date();
+    alert(time0)
     //music30s.play();
 }
 
@@ -34,9 +37,14 @@ agoButton.onclick = () =>{
 }
 
 showButton.onclick = () =>{
-    if(list.length<10){
+    if(list.length<11){
         return;
     } else {
+        for(var i = 0; i < 10; i++){
+            resultlist[i] = Math.abs(risoulist - list);
+        }
+        console.log(resultlist);
+        
         const header = document.createElement('h1');
         result = 'すばらしい'
         header.innerText = "結果" + result;
@@ -52,7 +60,7 @@ showButton.onclick = () =>{
         boatlink.href = 'http://kyoto-univ-rowing.com/'
         boatlink.target = '_blank'
         boatlink.innerText = "京都大学ボート部のホームページはこちら";
-        linkArea.appendChild(boatlink);  
+        linkArea.appendChild(boatlink); 
     }
 }
 
