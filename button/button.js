@@ -29,13 +29,27 @@ music30s.src = 'music30spi2.mp3';
 music30s.load();
 
 startButton.onclick = () => {
-    music30s.play();
-    time0 = new Date();    
-    agoButton.innerText = '';
-    startButton.remove();
-    countarea = document.createElement('h3');
-    countarea.innerText = '残り筋トレ回数' + (10 - count) + '回';
-    countArea.appendChild(countarea); 
+    if (music30s.readyState === 4) {
+        music30s.play();
+        time0 = new Date();    
+        agoButton.innerText = '';
+        startButton.remove();
+        countarea = document.createElement('h3');
+        countarea.innerText = '残り筋トレ回数' + (10 - count) + '回';
+        countArea.appendChild(countarea); 
+      } else {
+        // 再生可能状態でなければ再生可能状態になった時のイベント通知をセットします
+        music30s.addEventListener('canplaythrough', function (e) {
+          music30s.removeEventListener('canplaythrough', arguments.callee);
+          music30s.play();
+          time0 = new Date();    
+          agoButton.innerText = '';
+          startButton.remove();
+          countarea = document.createElement('h3');
+          countarea.innerText = '残り筋トレ回数' + (10 - count) + '回';
+          countArea.appendChild(countarea); 
+        });
+      }
 }
 
 agoButton.onclick = () =>{
