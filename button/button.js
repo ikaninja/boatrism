@@ -27,6 +27,7 @@ music30s.preload = 'auto';
 startButton.onclick = () => {
     time0 = new Date();
     music30s.play();
+    agoButton.innerText = '';
 }
 
 //function timefunc(){
