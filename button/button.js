@@ -35,7 +35,7 @@ startButton.onclick = () => {
         agoButton.innerText = '';
         startButton.remove();
         countarea = document.createElement('h3');
-        countarea.innerText = '残り筋トレ回数' + (10 - count) + '回 if';
+        countarea.innerText = '残り筋トレ回数' + (10 - count) + '回';
         countArea.appendChild(countarea); 
       } else {
         // 再生可能状態でなければ再生可能状態になった時のイベント通知をセットします
@@ -47,7 +47,7 @@ startButton.onclick = () => {
           agoButton.innerText = '';
           startButton.remove();
           countarea = document.createElement('h3');
-          countarea.innerText = '残り筋トレ回数' + (10 - count) + '回 else';
+          countarea.innerText = '残り筋トレ 回数' + (10 - count) + '回';
           countArea.appendChild(countarea); 
       }
 }
