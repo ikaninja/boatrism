@@ -21,7 +21,7 @@ var point = 0;
 var text;
 
 var music30s = new Audio();
-music30s.src = 'music30s.mp3pi';
+music30s.src = 'music30spi.mp3';
 
 startButton.onclick = () => {
     time0 = new Date();
