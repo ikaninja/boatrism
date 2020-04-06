@@ -1,5 +1,6 @@
 'use strict';
 
+const countArea = document.getElementById('count-area');
 const timerArea = document.getElementById('timer-area');
 const startButton = document.getElementById('start-button');
 const agoButton = document.getElementById('ago-button');
@@ -13,6 +14,8 @@ const tweetArea = document.getElementById('tweet-area');
 var time0;
 var time1;
 var seconds;
+var count = 0;
+var countarea;
 var list = [];
 var result;
 var resultlist = [];
@@ -28,25 +31,29 @@ startButton.onclick = () => {
     time0 = new Date();
     music30s.play();
     agoButton.innerText = '';
+    startButton.remove();
+    countarea = document.createElement('h3');
+    countarea.innerText = '残り筋トレ回数' + (10 - count) + '回';
+    countArea.appendChild(countarea); 
 }
 
-//function timefunc(){
-//    var res = confirm("OKを押すと音楽が流れ始め30秒がスタートします")
-//    if(res === true) {
-//        time0 = new Date();
-//        music30s.play();
-//    } else {
-//        window.location.href = 'https://ikaninja.github.io/boatrism/title/title.html'
-//    }
-//}
-
-//window.onload = timefunc;
-
 agoButton.onclick = () =>{
-    time1 = new Date();
-    seconds = (time1.getTime() - time0.getTime())/1000;
-    if(list.length < 10){
-        list.push(seconds);
+    if(agoButton.innerText !== ''){
+        return;
+    }else{
+        time1 = new Date();
+        seconds = (time1.getTime() - time0.getTime())/1000;
+        count = count + 1;
+        if(list.length < 10){
+            list.push(seconds);
+            countarea.innerText = '残り筋トレ回数' + (10 - count) + '回';
+            if(count === 10){
+                music30s.pause();
+                const header = document.createElement('h3');
+                header.innerText = 'お疲れさまでした。結果を見てみましょう！';
+                countArea.appendChild(header); 
+            }
+        } 
     }
 }
 
@@ -61,9 +68,9 @@ showButton.onclick = () =>{
         for(var j = 0; j < 10; j++){
             if(resultlist[j] < 0.3){
                 point = point + 3;
-            } else if(resultlist[i] < 0.5) {
+            } else if(resultlist[j] < 0.5) {
                 point = point + 2;
-            } else if(resultlist[i] < 0.8) {
+            } else if(resultlist[j] < 0.8) {
                 point = point + 1;
             } else {
                 point = point + 0;
@@ -81,7 +88,7 @@ showButton.onclick = () =>{
         }
 
         const header = document.createElement('h1');
-        text = "30点満点中　" + point + '点  ' + result;
+        text = "30点満点中　" + point + '点  ' + result ;
         header.innerText = text;
         resultArea.appendChild(header); 
 
@@ -92,7 +99,7 @@ showButton.onclick = () =>{
         restartArea.appendChild(link);  
 
         const boatlink = document.createElement('a');
-        boatlink.href = 'http://kyoto-univ-rowing.com/'
+        boatlink.href = 'http://recruit.kyoto-univ-rowing.com/'
         boatlink.target = '_blank'
         boatlink.innerText = "京都大学ボート部のホームページはこちら";
         linkArea.appendChild(boatlink); 
