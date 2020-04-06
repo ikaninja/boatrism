@@ -14,7 +14,7 @@ var time1;
 var seconds;
 var list = [];
 var result;
-var risoulist;
+var resultlist = [];
 var risoulist = [6,9,12,15,18,21,24,27,30,33];
 
 //var music30s = new Audio();
@@ -41,13 +41,12 @@ showButton.onclick = () =>{
         return;
     } else {
         for(var i = 0; i < 10; i++){
-            resultlist[i] = Math.abs(risoulist - list);
+            resultlist.push = Math.abs(risoulist[i] - list[i]);
         }
-        console.log(resultlist);
-        
+
         const header = document.createElement('h1');
         result = 'すばらしい'
-        header.innerText = "結果" + result;
+        header.innerText = "結果" + resultlist[1];
         resultArea.appendChild(header); 
 
         const link = document.createElement('a');
