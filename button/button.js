@@ -14,8 +14,8 @@ var time1;
 var seconds;
 var list = [];
 var result;
-var resultlist = [];
-var risoulist = [6,9,12,15,18,21,24,27,30,33];
+//var resultlist = [];
+//var risoulist = [6,9,12,15,18,21,24,27,30,33];
 
 //var music30s = new Audio();
 //music30s.src = 'music30s.mp3';
@@ -40,13 +40,13 @@ showButton.onclick = () =>{
     if(list.length<11){
         return;
     } else {
-        for(var i = 0; i < 10; i++){
-            resultlist.push = Math.abs(risoulist[i] - list[i]);
-        }
+ //       for(var i = 0; i < 10; i++){
+   //         resultlist.push = Math.abs(risoulist[i] - list[i]);
+     //   }
 
         const header = document.createElement('h1');
-        result = 'すばらしい'
-        header.innerText = "結果" + resultlist[1];
+        result = 'すばらしいよ'
+        header.innerText = "結果" + result;
         resultArea.appendChild(header); 
 
         const link = document.createElement('a');
