@@ -25,11 +25,12 @@ var text;
 
 var music30s = new Audio();
 music30s.src = 'music30spi2.mp3';
-music30s.preload = 'auto';
+//music30s.preload = 'auto';
+music30s.load();
 
 startButton.onclick = () => {
-    time0 = new Date();
     music30s.play();
+    time0 = new Date();    
     agoButton.innerText = '';
     startButton.remove();
     countarea = document.createElement('h3');
