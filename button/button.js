@@ -19,13 +19,17 @@ var risoulist = [6,9,12,15,18,21,24,27,30,33];
 var point = 0;
 var text;
 
-//var music30s = new Audio();
-//music30s.src = 'music30s.mp3';
+var music30s = new Audio();
+music30s.src = 'music30s.mp3';
 
 function timefunc(){
-    time0 = new Date();
-    alert(time0)
-    //music30s.play();
+    var res = confirm("OKを押すと音楽が流れ始め30秒がスタートします")
+    if(res === true) {
+        time0 = new Date();
+        music30s.play();
+    } else {
+        window.location.href = 'https://ikaninja.github.io/boatrism/title/title.html'
+    }
 }
 
 window.onload = timefunc;
