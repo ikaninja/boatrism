@@ -42,13 +42,13 @@ startButton.onclick = () => {
         music30s.addEventListener('canplaythrough', function (e) {
           music30s.removeEventListener('canplaythrough', arguments.callee);
           music30s.play();
+        });
           time0 = new Date();    
           agoButton.innerText = '';
           startButton.remove();
           countarea = document.createElement('h3');
           countarea.innerText = '残り筋トレ回数' + (10 - count) + '回';
           countArea.appendChild(countarea); 
-        });
       }
 }
 
