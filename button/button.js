@@ -99,6 +99,8 @@ showButton.onclick = () =>{
 
         if(point === 30){
             result = '不正が強く疑われるほどの天才';
+        } else if(point === 0) {
+            result = 'まあ、涙拭けよ';
         } else if(point > 27){
             result = '世界記録樹立レベル！';
         } else if(point > 25){
@@ -110,7 +112,7 @@ showButton.onclick = () =>{
         } else if(point > 5){
             result = '新人ボート部員レベル';
         }   else {
-            result = '才能なし';
+            result = '普通の京大生';
         }
 
         const header = document.createElement('h1');
