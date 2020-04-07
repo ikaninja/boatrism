@@ -32,15 +32,17 @@ var musicgong = new Audio();
 musicgong.src = 'gong.mp3';
 musicgong.load();
 
+countarea = document.createElement('h3');
+countarea.innerText = '※優しくタップしてください'
+countArea.appendChild(countarea); 
+
 startButton.onclick = () => {
     if (music30s.readyState === 4) {
         music30s.play();
         time0 = new Date();    
         agoButton.innerText = '';
         startButton.remove();
-        countarea = document.createElement('h3');
         countarea.innerText = '残り筋トレ回数' + (10 - count) + '回';
-        countArea.appendChild(countarea); 
       } else {
         // 再生可能状態でなければ再生可能状態になった時のイベント通知をセットします
         music30s.addEventListener('canplaythrough', function (e) {
@@ -100,7 +102,7 @@ showButton.onclick = () =>{
         if(point === 30){
             result = '不正が強く疑われるほどの天才';
         } else if(point === 0) {
-            result = 'まあ、涙拭けよ';
+            result = 'そんな日もあるさ';
         } else if(point > 27){
             result = '世界記録樹立レベル！';
         } else if(point > 25){
@@ -121,7 +123,7 @@ showButton.onclick = () =>{
         resultArea.appendChild(header); 
 
         const link = document.createElement('a');
-        link.href = "https://ikaninja.github.io/boatrism/title/title.html";
+        link.href = "https://boatrism.herokuapp.com";
         link.target = '_self';
         link.innerText = "もう一回挑戦する";
         restartArea.appendChild(link);  
