@@ -19,7 +19,7 @@ var countarea;
 var list = [];
 var result;
 var resultlist = [];
-var risoulist = [6,9,12,15,18,21,24,27,30,33];
+var risoulist = [6.4,9.4,12.4,15.4,18.4,21.4,24.4,27.4,30.4,33.4];
 var point = 0;
 var text;
 
@@ -27,6 +27,10 @@ var music30s = new Audio();
 music30s.src = 'music30spi2.mp3';
 //music30s.preload = 'auto';
 music30s.load();
+
+var musicgong = new Audio();
+musicgong.src = 'gong.mp3';
+musicgong.load();
 
 startButton.onclick = () => {
     if (music30s.readyState === 4) {
@@ -64,6 +68,7 @@ agoButton.onclick = () =>{
             countarea.innerText = '残り筋トレ回数' + (10 - count) + '回';
             if(count === 10){
                 music30s.pause();
+                musicgong.play();
                 const header = document.createElement('h3');
                 header.innerText = 'お疲れさまでした。結果を見てみましょう！';
                 countArea.appendChild(header); 
@@ -92,13 +97,19 @@ showButton.onclick = () =>{
             }
         }
 
-        if(point > 26){
-            result = '天才';
-        } else if(point > 20){
-            result = '才能あり';
+        if(point === 30){
+            result = '不正が強く疑われるほどの天才';
+        } else if(point > 27){
+            result = '世界記録樹立レベル！';
+        } else if(point > 25){
+            result = 'オリンピック金メダル級';
+        } else if(point > 15){
+            result = 'インカレ優勝レベル';
         } else if(point > 10){
-            result = '普通';
-        } else {
+            result = 'ボート経験者レベル';
+        } else if(point > 5){
+            result = '新人ボート部員レベル';
+        }   else {
             result = '才能なし';
         }
 
@@ -110,13 +121,13 @@ showButton.onclick = () =>{
         const link = document.createElement('a');
         link.href = "https://ikaninja.github.io/boatrism/title/title.html";
         link.target = '_self';
-        link.innerText = "もう一度挑戦する";
+        link.innerText = "もう一回挑戦する";
         restartArea.appendChild(link);  
 
         const boatlink = document.createElement('a');
         boatlink.href = 'http://recruit.kyoto-univ-rowing.com/'
         boatlink.target = '_blank'
-        boatlink.innerText = "京都大学ボート部のホームページはこちら";
+        boatlink.innerText = "京都大学ボート部の新歓ホームページはこちら";
         linkArea.appendChild(boatlink); 
 
         const anchor = document.createElement('a');

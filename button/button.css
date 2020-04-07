@@ -1,11 +1,12 @@
 #ago-button {
     border-radius: 5px;
-    font-size: 100px;
-    background-color: green;
+    font-size: 90px;
+    background-color: darkblue;
     padding: 20px;
     text-align: center;
+    vertical-align: top;
     color: white;
-    height: 450px;
+    height: 400px;
     margin: 0px;
     width: 100%;
 }
