@@ -24,7 +24,7 @@ var point = 0;
 var text;
 
 var music30s = new Audio();
-music30s.src = 'music30spi2.mp3';
+music30s.src = 'music30skai.mp3';
 //music30s.preload = 'auto';
 music30s.load();
 
