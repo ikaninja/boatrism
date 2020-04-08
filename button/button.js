@@ -52,9 +52,7 @@ startButton.onclick = () => {
           time0 = new Date();    
           agoButton.innerText = '';
           startButton.remove();
-          countarea = document.createElement('h3');
           countarea.innerText = '残り筋トレ 回数' + (10 - count) + '回';
-          countArea.appendChild(countarea); 
       }
 }
 
