@@ -72,6 +72,11 @@ agoButton.onclick = () =>{
                 const header = document.createElement('h3');
                 header.innerText = 'お疲れさまでした。結果を見てみましょう！';
                 countArea.appendChild(header); 
+
+                const resultbutton = document.createElement('button');
+                resultbutton.innerText = '結果を見る';
+                resultbutton.setAttribute('id', 'show-button2');
+                showButton.appendChild(resultbutton);
             }
         } 
     }
