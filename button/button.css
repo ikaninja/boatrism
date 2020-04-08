@@ -10,3 +10,13 @@
     margin: 0px;
     width: 100%;
 }
+
+#start-button {
+    height: 30px;
+    width: 200px;
+}
+
+#show-button {
+    height: 30px;
+    width: 200px;
+}
