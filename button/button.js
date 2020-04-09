@@ -33,7 +33,7 @@ function start321(){
         setTimeout(start321, 1000)
     } else if(start === 0) {
         agoButton.innerText = 'GO!'
-        setTimeout(start321, 500)
+        setTimeout(start321, 800)
     } else {
         agoButton.innerText = '';
     }
@@ -42,7 +42,7 @@ function start321(){
 function timing(){
     number = number + 1
     if(number > 0 && number < 11){
-        countarea.innerText = '次で筋トレ' + number + '回目';
+        countarea.innerText = '次が筋トレ' + number + '回目';
         setTimeout(timing, 3000);
     } else if(number === 0){
         setTimeout(timing, 3400);
@@ -72,7 +72,7 @@ musicgong.src = 'gong.mp3';
 musicgong.load();
 
 countarea = document.createElement('h3');
-countarea.innerText = '※優しくタップしてください'
+countarea.innerText = '※アゴでうまくタップするのも技術です。'
 countArea.appendChild(countarea); 
 
 startButton.onclick = () => {
