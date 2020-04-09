@@ -49,6 +49,7 @@ function timing(){
     }else if(number === 11) {
         setTimeout(timing,3000);
     } else if(number === 12) {
+        countarea.remove();
         const header = document.createElement('h3');
         header.innerText = 'お疲れさまでした。結果を見てみましょう！';
         countArea.appendChild(header);                
