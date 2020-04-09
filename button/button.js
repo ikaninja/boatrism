@@ -15,13 +15,52 @@ var time0;
 var time1;
 var seconds;
 var count = 0;
+var number = -1;
+var start = 4;
 var countarea;
 var list = [];
 var result;
 var resultlist = [];
+var minlist;
 var risoulist = [6.4,9.4,12.4,15.4,18.4,21.4,24.4,27.4,30.4,33.4];
 var point = 0;
 var text;
+
+function start321(){
+    start = start - 1;
+    if(start > 0) {
+        agoButton.innerText = start;
+        setTimeout(start321, 1000)
+    } else if(start === 0) {
+        agoButton.innerText = 'GO!'
+        setTimeout(start321, 500)
+    } else {
+        agoButton.innerText = '';
+    }
+}
+
+function timing(){
+    number = number + 1
+    if(number > 0 && number < 11){
+        countarea.innerText = '次で筋トレ' + number + '回目';
+        setTimeout(timing, 3000);
+    } else if(number === 0){
+        setTimeout(timing, 3400);
+    }else if(number === 11) {
+        setTimeout(timing,3000);
+    } else if(number === 12) {
+        const header = document.createElement('h3');
+        header.innerText = 'お疲れさまでした。結果を見てみましょう！';
+        countArea.appendChild(header);                
+
+        
+        const resultbutton = document.createElement('button');
+        resultbutton.innerText = '結果を見る';
+        resultbutton.setAttribute('id', 'show-button2');
+        showButton.appendChild(resultbutton);
+    }
+}
+
 
 var music30s = new Audio();
 music30s.src = 'music30skai.mp3';
@@ -40,9 +79,10 @@ startButton.onclick = () => {
     if (music30s.readyState === 4) {
         music30s.play();
         time0 = new Date();    
-        agoButton.innerText = '';
+        start321();
+       // agoButton.innerText = '';
         startButton.remove();
-        countarea.innerText = '残り筋トレ回数' + (10 - count) + '回';
+        timing();
       } else {
         // 再生可能状態でなければ再生可能状態になった時のイベント通知をセットします
         music30s.addEventListener('canplaythrough', function (e) {
@@ -52,7 +92,7 @@ startButton.onclick = () => {
           time0 = new Date();    
           agoButton.innerText = '';
           startButton.remove();
-          countarea.innerText = '残り筋トレ 回数' + (10 - count) + '回';
+        timing();
       }
 }
 
@@ -62,33 +102,38 @@ agoButton.onclick = () =>{
     }else{
         time1 = new Date();
         seconds = (time1.getTime() - time0.getTime())/1000;
-        count = count + 1;
-        if(list.length < 10){
-            list.push(seconds);
-            countarea.innerText = '残り筋トレ回数' + (10 - count) + '回';
-            if(count === 10){
-                music30s.pause();
-                musicgong.play();
-                const header = document.createElement('h3');
-                header.innerText = 'お疲れさまでした。結果を見てみましょう！';
-                countArea.appendChild(header); 
-
-                const resultbutton = document.createElement('button');
-                resultbutton.innerText = '結果を見る';
-                resultbutton.setAttribute('id', 'show-button2');
-                showButton.appendChild(resultbutton);
-            }
-        } 
+       // count = count + 1;
+       // if(list.length < 10){
+        list.push(seconds);
+        //    countarea.innerText = '残り筋トレ回数' + (10 - count) + '回';
+        //    if(count === 10 ){
+        //        music30s.pause();
+        //        musicgong.play();
+        //        const header = document.createElement('h3');
+        //        header.innerText = 'お疲れさまでした。結果を見てみましょう！';
+        //       countArea.appendChild(header);         
+        //        const resultbutton = document.createElement('button');
+        //        resultbutton.innerText = '結果を見る';
+        //        resultbutton.setAttribute('id', 'show-button2');
+        //        showButton.appendChild(resultbutton);
+        //    }
+        //} 
     }
 }
 
 showButton.onclick = () =>{
-    if(list.length<10){
-        return;
-    } else {
+   // if(list.length<10){
+   //     return;
+   // } else {
         for(var i = 0; i < 10; i++){
-            resultlist[i] = Math.abs(risoulist[i] - list[i]);
+            minlist = [];
+            for(var l = 0; l < list.length; l++){
+                minlist[l] = Math.abs(risoulist[i] - list[l]);
+            }
+            resultlist[i] = Math.min.apply(null, minlist);
         }
+        console.log(list);
+        console.log(resultlist);
 
         for(var j = 0; j < 10; j++){
             if(resultlist[j] < 0.3){
@@ -154,6 +199,6 @@ showButton.onclick = () =>{
         tweetArea.appendChild(script);
 
         showButton.remove();
-    }
+   // }
 }
 
