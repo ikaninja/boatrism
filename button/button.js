@@ -26,6 +26,14 @@ var risoulist = [6.4,9.4,12.4,15.4,18.4,21.4,24.4,27.4,30.4,33.4];
 var point = 0;
 var text;
 
+
+
+function colorChange(){
+    agoButton.style.backgroundColor = 'rgb(0,0,90)';
+    setTimeout( () => {
+        agoButton.style.backgroundColor = 'rgb(0, 0, 139)'}, 100);
+}
+
 function start321(){
     start = start - 1;
     if(start > 0) {
@@ -99,9 +107,11 @@ startButton.onclick = () => {
 
 agoButton.onclick = () =>{
     if(agoButton.innerText !== ''){
+        colorChange();
         return;
     }else{
         time1 = new Date();
+        colorChange();
         seconds = (time1.getTime() - time0.getTime())/1000;
        // count = count + 1;
        // if(list.length < 10){
