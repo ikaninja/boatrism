@@ -149,9 +149,9 @@ showButton.onclick = () =>{
         for(var j = 0; j < 10; j++){
             if(resultlist[j] < 0.3){
                 point = point + 3;
-            } else if(resultlist[j] < 0.5) {
+            } else if(resultlist[j] < 0.6) {
                 point = point + 2;
-            } else if(resultlist[j] < 0.8) {
+            } else if(resultlist[j] < 1) {
                 point = point + 1;
             } else {
                 point = point + 0;
